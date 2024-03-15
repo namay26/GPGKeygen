@@ -7,7 +7,7 @@ echo "---------WELCOME TO GPGKeygen---------"
 declare -a keys
 
 existing_key
-if [ $keyno -lt 0 ];
+if [ $keyno -eq 0 ];
 then
 	echo "There are no keys associated with this account. Do you wish to : "
 	echo "1. Set up a new key"
