@@ -2,21 +2,29 @@
 
 source utils.sh
 
-echo "---------WELCOME TO GPGKeygen---------"
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+RESET=$(tput sgr0)
+bgWhite="$(tput setb 7)";
 
-declare -a keys
-
+clear
+echo "${bgWhite}${BLACK}                     ---------WELCOME TO GPGKeygen---------                     ${RESET}"
+echo 
 existing_key
 if [ $keyno -eq 0 ];
 then
-	echo "There are no keys associated with this account. Do you wish to : "
-	echo "1. Set up a new key"
-	echo "0. Exit"
+	echo "${GREEN}There are no keys associated with this account. Do you wish to : ${RESET}"
+	echo "${BLUE}1. Set up a new key${RESET}"
+	echo "${RED}0. Exit${RESET}"
 else
-	echo "There are $keyno key-s linked to this account. Do you wish to : "
-	echo "1. Set up a new key"
-	echo "2. Work with an existing key"
-	echo "0. Exit"
+	echo "${GREEN}There are $keyno key-s linked to this account. Do you wish to : ${RESET}"
+	echo "${BLUE}1. Set up a new key${RESET}"
+	echo "${YELLOW}2. Work with an existing key${RESET}"
+	echo "${RED}0. Exit${RESET}"
 fi
 echo "----------------------------------"
 read ans
