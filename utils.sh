@@ -5,11 +5,11 @@ keyno=$check
 maxkeys=$check
 while [ $check -gt 0 ];
 do
-	keys[check]=$(gpg --list-secret-keys --keyid-format=long|awk /sec/|cut -b 15-30)
+	keys[check]=$(gpg --list-secret-keys --keyid-format=long|awk /sec/|cut -b 15-30|sed "${check}q;d")
 	((check--))
 done
 };
-
+	
 # Exiting the program
 ext(){
 	echo
