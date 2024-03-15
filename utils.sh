@@ -63,18 +63,14 @@ signcommit(){
 keywork(){
 	arg=$1
 	echo
+	gpg --armor --export $arg
+	echo
 	echo "${GREEN}What do you wish to do with the key?${RESET}"
-	echo "${BLUE}1. Access the public key${RESET}"
-	echo "${YELLOW}2. Use this for your commits${RESET}"
+	echo "${YELLOW}1. Use this for your commits${RESET}"
 	echo "${RED}0. Exit${RESET}"
 	read sol
 	if [ $sol -eq 1 ];
 	then
-		gpg --armor --export $arg
-	elif [ $sol -eq 2 ];
-	then
 		signcommit $arg
-	else
-		ext	
 	fi
 }
